@@ -1,0 +1,43 @@
+<h1>{{title}}</h1>
+<ul class="personen">
+    <li *ngFor="let persoon of personen">
+        <a routerLink="/detail/{{persoon.id}}">{{persoon.firstName}} {{persoon.surname}}</a>
+        <a class="btn" (click)="delete(persoon)">
+            <i class="fa fa-trash-o"></i>
+        </a>
+    </li>
+</ul>
+
+<div>
+
+      <h4>Een persoon toevoegen</h4>
+  
+      <form>
+  
+        <div class="form-group">
+          <label>Voornaam: 
+            <input class="form-control" [(ngModel)]="nieuwePersoon.firstName" name="first name"/>
+          </label>
+        </div>
+    
+        <div class="form-group">
+          <label>Familienaam: 
+            <input class="form-control" [(ngModel)]="nieuwePersoon.surname" name="surname"/>
+          </label>
+        </div>
+  
+        <div class="form-group">
+            <label>Geboortejaar: 
+              <input class="form-control" [(ngModel)]="nieuwePersoon.yearOfBirth" name="year of birth" type="number"/>
+            </label>
+        </div>
+    
+        <div class="form-group">
+          <button class="btn btn-primary" (click)="add()">Add</button>
+        </div>
+  
+      </form>
+  
+</div>
+
+<app-persoon-zoek></app-persoon-zoek>
